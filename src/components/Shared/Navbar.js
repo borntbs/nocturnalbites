@@ -13,7 +13,7 @@ const NavBar = () => {
 
   return (
     <div className={CSS.NavBar}>
-      <img src={noctLogo} className={CSS.logo}></img>
+      <img src={noctLogo} className={CSS.logo} alt="logo"></img>
       <ul className="flex flex-row text-[11px]">
         <li className={CSS.li}>
           <NavLink to="/" className={CSS.NavLink}>
