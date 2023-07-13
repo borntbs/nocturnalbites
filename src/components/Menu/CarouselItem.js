@@ -1,5 +1,12 @@
 import React from "react";
-import { Typography, Button } from "@material-tailwind/react";
+import { Typography /*Button*/ } from "@material-tailwind/react";
+
+/*
+props:
+.desc : "string"
+.header : "string"
+.Image: image object
+*/
 
 const CarouselItem = (props) => {
   return (
@@ -24,14 +31,14 @@ const CarouselItem = (props) => {
             that emanation from old trees, that so wonderfully changes and
             renews a weary spirit.
           </Typography>
-          <div className="flex justify-center gap-2">
+          {/* <div className="flex justify-center gap-2">
             <Button size="lg" color="white">
               Explore
             </Button>
             <Button size="lg" color="white" variant="text">
               Gallery
             </Button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
