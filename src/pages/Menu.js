@@ -60,7 +60,7 @@ const AllPriceDesc = {
   },
   "French Fries": {
     price: 4,
-    desc: "",
+    desc: "Homemade french fries cut thin and deep fried until golden brown, then sprinkled with seasonings.",
     type: "Sides",
     subType: "Fries",
   },
@@ -96,7 +96,7 @@ const AllPriceDesc = {
   },
   "Apple Pie": {
     price: 6.8,
-    desc: "",
+    desc: "Filled above the rim with fresh granny smith apples, sweetened with sugar and spices to enhance the flavor of the apples to perfection, sealed with our buttery flaky crust.",
     type: "Dessert",
     subType: "Pie",
   },
