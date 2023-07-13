@@ -12,7 +12,4 @@
   html {
     @apply scroll-smooth;
   }
-  /* .menuNav > div {
-    @apply px-5 py-2;
-  } */
 }
