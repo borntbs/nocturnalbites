@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import ItemCard from "../components/Menu/ItemCard";
 import MenuNav from "../components/Menu/MenuNav";
@@ -124,6 +124,12 @@ const AllPriceDesc = {
     type: "Dessert",
     subType: "Ice Cream",
   },
+  "Ravioli Pomodoro": {
+    price: 16,
+    desc: "Handmade thin pasta stuffed with fresh spinach and creamy ricotta cheese. Tossed in a pan with a fresh sauce made from tomato halves and basil.",
+    type: "Mains",
+    subType: "Pasta",
+  },
 };
 
 const Mains = require.context("../assets/Mains");
@@ -171,8 +177,10 @@ export const genAllItems = () => {
 const Categories = ["Mains", "Sides", "Drinks", "Dessert"];
 const Menu = (props) => {
   const [Category, setCategory] = useState(Object.keys(AllImages)[0]);
+  const menuRefs = useRef([]);
 
   const AllItems = genAllItems();
+
   useEffect(() => {
     if (props.category) {
       setCategory(props.category);
@@ -180,14 +188,17 @@ const Menu = (props) => {
       setCategory(Object.keys(AllImages)[0]);
     }
   }, [props.category]);
-  console.log(AllItems);
+
   const genMenu = () => {
     const menu = [];
 
-    Categories.forEach((cat) => {
+    // menuRefs.current = Categories.map((ref, index) => {
+    //   menuRefs.current[index] = React.createRef();
+    // });
+
+    Categories.forEach((cat, index) => {
       const itemArr = [];
       const images = AllImages[cat];
-      console.log(cat, ":", images);
       if (images) {
         for (let i = 0; i < images.length; i++) {
           const Image = images[i];
@@ -216,7 +227,12 @@ const Menu = (props) => {
         }
         menu.push(
           <div className="" key={crypto.randomUUID()}>
-            <div className="py-[3em] text-center font-bold text-2xl flex flex-row justify-center">
+            <div
+              className="py-[3em] text-center font-bold text-2xl flex flex-row justify-center"
+              ref={(ref) => {
+                menuRefs.current[index] = ref;
+              }}
+            >
               <span>{"["}</span>
               <span className="px-10 text-2xl">{cat}</span>
               <span>{"]"}</span>
@@ -232,11 +248,16 @@ const Menu = (props) => {
     return menu;
   };
 
+  const scrollTo = (e) => {
+    const scrollToCat = e.currentTarget.innerHTML;
+    const refIndex = Categories.indexOf(scrollToCat);
+    menuRefs.current[refIndex].scrollIntoView();
+  };
+
   return (
-    <div>
-      <MenuNav />
+    <div className="">
+      <MenuNav scrollTo={scrollTo} />
       <div>
-        {" "}
         {/* className="grid grid-cols-1 justify-items-center sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4" */}
         {genMenu()}
       </div>

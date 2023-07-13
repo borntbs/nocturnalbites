@@ -13,7 +13,7 @@ const ItemCard = ({ props }) => {
           <span className="text-lg ">{props.name}</span>
           <span className="border-solid border-b-black border-b-2 w-[50%] pt-2"></span>
         </div>
-        <div className="text-md">{`$${props.price.toFixed(2)}`}</div>
+        <div className="text-md">{`$${props.price.toFixed(1)}`}</div>
         <div className="text-xs break-normal">{props.desc}</div>
       </div>
     </div>
