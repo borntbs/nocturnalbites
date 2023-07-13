@@ -5,7 +5,7 @@ import CarouselItem from "./CarouselItem";
 
 const MenuCarousel = (props) => {
   return (
-    <Carousel className="w-screen max-h-[50vh]">
+    <Carousel className="w-full max-h-[50vh]">
       <CarouselItem />
       <CarouselItem />
       <CarouselItem />

@@ -10,7 +10,7 @@ const NavBar = () => {
 
   const CSS = {
     logo: "ml-3 w-20 h-20",
-    NavBar: "w-screen flex flex-row gap-2 pl-1 mt-2 justify-between",
+    NavBar: "w-full flex flex-row gap-2 pl-1 mt-2 justify-between",
     li: "group flex navItem transition-all flex-col justify-center items-center hover:shadow-lg hover:cursor-pointer",
     NavLink: "flex items-center h-full px-3 align-middle",
     linkFooter: "navFooter min-w-full h-[.3em] group-hover:bg-[#27285C]",

@@ -28,12 +28,20 @@ const AllPriceDesc = {
     type: "Sides",
     subType: "Salads",
   },
+  "Grilled Cheese Sandwich": {
+    price: 5,
+    desc: " Immerse yourself in pure comfort as golden, buttery bread embraces a molten blend of premium cheeses. Indulge in this timeless classic and rediscover the simple joy of a perfectly grilled cheese sandwich.",
+    type: "Mains",
+    subType: "Sandwiches",
+  },
 };
 
+const Mains = require.context("../assets/Mains");
 const Drinks = require.context("../assets/Drinks");
 const Sides = require.context("../assets/Sides");
 const Dessert = require.context("../assets/Dessert");
 export const AllImages = {
+  Mains: Mains.keys().map((image) => Mains(image)),
   Drinks: Drinks.keys().map((image) => Drinks(image)),
   Sides: Sides.keys().map((image) => Sides(image)),
   Dessert: Dessert.keys().map((image) => Dessert(image)),
@@ -70,7 +78,7 @@ export const genAllItems = () => {
   });
   return AllItems;
 };
-
+const Categories = ["Mains", "Sides", "Drinks", "Dessert"];
 const Menu = (props) => {
   const [Category, setCategory] = useState(Object.keys(AllImages)[0]);
 
@@ -84,41 +92,62 @@ const Menu = (props) => {
   }, [props.category]);
   console.log(AllItems);
   const genMenu = () => {
-    const itemArr = [];
-    const images = AllImages[Category];
-    for (let i = 0; i < images.length; i++) {
-      const Image = images[i];
-      //console.log(Image, typeof Image);
+    const menu = [];
 
-      const props = AllItems[Image];
+    Categories.forEach((cat) => {
+      const itemArr = [];
+      const images = AllImages[cat];
+      console.log(cat, ":", images);
+      if (images) {
+        for (let i = 0; i < images.length; i++) {
+          const Image = images[i];
+          //console.log(Image, typeof Image);
 
-      switch (i) {
-        case 0:
-          props["className"] = "toprow menuItem";
-          break;
-        case 1:
-          props["className"] = "sm:toprow menuItem";
-          break;
-        case 2:
-          props["className"] = "md:toprow menuItem";
-          break;
-        case 3:
-          props["className"] = "lg:toprow menuItem";
-          break;
-        default:
-          props["className"] = "menuItem";
-          break;
+          const props = AllItems[Image];
+
+          switch (i) {
+            case 0:
+              props["className"] = "toprow menuItem";
+              break;
+            case 1:
+              props["className"] = "sm:toprow menuItem";
+              break;
+            case 2:
+              props["className"] = "md:toprow menuItem";
+              break;
+            case 3:
+              props["className"] = "lg:toprow menuItem";
+              break;
+            default:
+              props["className"] = "menuItem";
+              break;
+          }
+          itemArr.push(<ItemCard props={props} key={crypto.randomUUID()} />);
+        }
+        menu.push(
+          <div className="" key={crypto.randomUUID()}>
+            <div className="py-[3em] text-center font-bold text-2xl flex flex-row justify-center">
+              <span>{"["}</span>
+              <span className="px-10 text-2xl">{cat}</span>
+              <span>{"]"}</span>
+            </div>
+            <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+              {itemArr}
+            </div>
+          </div>
+        );
       }
-      itemArr.push(<ItemCard props={props} key={crypto.randomUUID()} />);
-    }
-    console.log("itemArr", itemArr);
-    return itemArr;
+    });
+
+    return menu;
   };
 
   return (
     <div>
       <MenuNav />
-      <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+      <div>
+        {" "}
+        {/* className="grid grid-cols-1 justify-items-center sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4" */}
         {genMenu()}
       </div>
     </div>

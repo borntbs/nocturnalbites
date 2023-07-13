@@ -42,10 +42,10 @@ const Dev = (props) => {
         }
         menu.push(
           <div className="" key={crypto.randomUUID()}>
-            <div className="py-[3em] text-center font-bold text-2xl flex flex-row justify-center gap-10">
-              <span>{"{"}</span>
-              <span>{cat}</span>
-              <span>{"}"}</span>
+            <div className="py-[3em] text-center font-bold text-2xl flex flex-row justify-center">
+              <span>{"["}</span>
+              <span className="px-10 text-2xl">{cat}</span>
+              <span>{"]"}</span>
             </div>
             <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
               {itemArr}
