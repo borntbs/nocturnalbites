@@ -1,15 +1,25 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import React from "react";
 import "./App.css";
 
 import Home from "./pages/Home";
+import Menu from "./pages/Menu";
 import Dev from "./pages/Dev";
+import NavBar from "./components/Shared/Navbar";
 
 function App() {
   return (
     <Router>
+      <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Navigate to="/home" replace={true} />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
         <Route path="/dev" element={<Dev />} />
       </Routes>
     </Router>
