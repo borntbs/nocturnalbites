@@ -9,4 +9,7 @@
   .menuItem {
     @apply max-w-[20em] m-0 flex flex-row p-1 items-center border-solid border-black border-b-2;
   }
+  /* .menuNav > div {
+    @apply px-5 py-2;
+  } */
 }
