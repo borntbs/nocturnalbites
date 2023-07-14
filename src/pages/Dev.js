@@ -1,10 +1,10 @@
 import React from "react";
 
-import MenuCarousel from "../components/Menu/Carousel";
+import Reservation from "./Reservation";
 const Dev = (props) => {
   return (
     <div>
-      <MenuCarousel />
+      <Reservation />
     </div>
   );
 };
