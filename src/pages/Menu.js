@@ -25,7 +25,7 @@ const AllPriceDesc = {
   "Grilled Chicken Salad": {
     price: 9.5,
     desc: "Tender grilled chicken, fresh greens, and an array of vibrant vegetables come together to provide a flavorful balance of protein and freshness, making it the perfect choice for a satisfying and nutritious meal.",
-    type: "Sides",
+    type: "Mains",
     subType: "Salads",
   },
   "Grilled Cheese Sandwich": {
@@ -36,25 +36,25 @@ const AllPriceDesc = {
   },
   "Grilled Pork Burger": {
     price: 9.5,
-    desc: "",
+    desc: "Sink your teeth into our Grilled Pork Burger, where smoky, tender pork meets a toasted bun. Experience the succulence of perfectly grilled meat, paired with your favorite toppings.",
     type: "Mains",
     subType: "Burgers",
   },
-  "Lemon Thyme Chicken": {
-    price: 12,
-    desc: "",
-    type: "Mains",
-    subType: "Chicken",
-  },
   "Pesto Rice Bowl": {
     price: 14.5,
-    desc: "",
+    desc: "Fragrant basil pesto coats a bed of fluffy rice, accompanied by a medley of fresh vegetables.",
     type: "Mains",
     subType: "Rice",
   },
+  "Lemon Thyme Chicken": {
+    price: 12,
+    desc: "Each succulent bite offers a zesty twist, as the vibrant flavors of lemon and thyme infuse the tender, juicy chicken. Indulge in this delightful dish that is sure to brighten your palate.",
+    type: "Mains",
+    subType: "Chicken",
+  },
   "Crunchy Potato Salad": {
     price: 4,
-    desc: "",
+    desc: "Crisp potatoes mingle with a tantalizing mix of vegetables, all coated in a creamy dressing. ",
     type: "Sides",
     subType: "Salad",
   },
@@ -66,31 +66,31 @@ const AllPriceDesc = {
   },
   "Garlic Butter Eggplant": {
     price: 4,
-    desc: "",
+    desc: "Infused with a rich garlic butter, each slice provides a melt-in-your-mouth sensation.",
     type: "Sides",
     subType: "",
   },
   "Parmesan Asparagus": {
     price: 4,
-    desc: "",
+    desc: "Fresh asparagus roasted to perfection and topped with a sprinkle of Parmesan cheese.",
     type: "Sides",
     subType: "",
   },
   "Berry Smoothie": {
     price: 5,
-    desc: "",
+    desc: "Bursting with the natural sweetness of fresh berries, this invigorating blend offers a cool and creamy treat that is as delightful to look at as it is to sip.",
     type: "Drinks",
     subType: "Smoothies",
   },
   "Iced Matcha Latte": {
     price: 7,
-    desc: "",
+    desc: "Velvety matcha powder combined with chilled milk. Indulge in this refreshing and energizing beverage that will whisk you away to a state of tranquility.",
     type: "Drinks",
     subType: "Tea",
   },
   "Vanilla Chai Latte": {
     price: 7,
-    desc: "",
+    desc: "Fragrant spices meld with a touch of sweet vanilla, perfectly infused in steamed milk.",
     type: "Drinks",
     subType: "Tea",
   },
@@ -102,25 +102,25 @@ const AllPriceDesc = {
   },
   "Lava Cake": {
     price: 4.5,
-    desc: "",
+    desc: "With a molten, gooey center and a delicate, moist exterior, this dessert is a chocolate lover's dream.",
     type: "Dessert",
     subType: "Cake",
   },
   "Vanilla Ice Cream": {
     price: 3.5,
-    desc: "",
+    desc: "Indulge in the pure simplicity of vanilla, allowing each spoonful to transport you to a place of pure bliss.",
     type: "Dessert",
     subType: "Ice Cream",
   },
   "Chocolate Ice Cream": {
     price: 3.5,
-    desc: "",
+    desc: "Made with premium, velvety chocolate, Chocolate Ice Cream provides a rich and intense flavor to every scoop.",
     type: "Dessert",
     subType: "Ice Cream",
   },
   "Chocolate Chip Ice Cream": {
     price: 3.5,
-    desc: "",
+    desc: "With each spoonful, discover a delightful interplay of velvety ice cream and luscious chocolate chips",
     type: "Dessert",
     subType: "Ice Cream",
   },
@@ -192,18 +192,12 @@ const Menu = (props) => {
   const genMenu = () => {
     const menu = [];
 
-    // menuRefs.current = Categories.map((ref, index) => {
-    //   menuRefs.current[index] = React.createRef();
-    // });
-
     Categories.forEach((cat, index) => {
       const itemArr = [];
       const images = AllImages[cat];
       if (images) {
         for (let i = 0; i < images.length; i++) {
           const Image = images[i];
-          //console.log(Image, typeof Image);
-
           const props = AllItems[Image];
 
           switch (i) {
@@ -223,7 +217,11 @@ const Menu = (props) => {
               props["className"] = "menuItem";
               break;
           }
-          itemArr.push(<ItemCard props={props} key={crypto.randomUUID()} />);
+          itemArr.push(
+            <div className="flex flex-col">
+              <ItemCard props={props} key={crypto.randomUUID()} />
+            </div>
+          );
         }
         menu.push(
           <div className="" key={crypto.randomUUID()}>

@@ -2,7 +2,7 @@ import React from "react";
 
 const ItemCard = ({ props }) => {
   return (
-    <div className={props.className}>
+    <div className={props.className + " flex-grow"}>
       <img
         src={props.img}
         alt="Menu Item"
