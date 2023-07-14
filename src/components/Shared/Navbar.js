@@ -13,7 +13,8 @@ const NavBar = () => {
     NavBar: "w-full flex flex-row gap-2 pl-1 mt-0 justify-between bg-white",
     li: "group flex navItem transition-all flex-col justify-center items-center hover:shadow-lg hover:cursor-pointer",
     NavLink: "flex items-center h-full px-3 align-middle",
-    linkFooter: "navFooter min-w-full h-[.3em] group-hover:bg-[#27285C]",
+    linkFooter:
+      "navFooter min-w-full h-[.3em] group-hover:bg-[#27285C] group-focus:bg-[#27285C] group-focus:opacity-60",
   };
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const NavBar = () => {
   return (
     <div className={CSS.NavBar} ref={navBarRef}>
       <img src={noctLogo} className={CSS.logo} alt="logo"></img>
-      <ul className="flex flex-row text-sm mr-3 font-bold">
+      <ul className="flex flex-row text-sm mr-3 font-bold" id="navBar">
         <li className={CSS.li} onClick={setActive}>
           <NavLink to="/" className={CSS.NavLink}>
             Home
