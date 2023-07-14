@@ -1,10 +1,10 @@
 import React from "react";
-import bannerImg from "../../assets/nocturnalBanner.png";
+import bannerImg from "../../assets/Misc/nocturnalBanner.png";
 
 const Banner = () => {
   return (
-    <div className="w-screen bg-white flex justify-center align-middle">
-      <img src={bannerImg} className="w-80 h-50" alt="banner"></img>
+    <div className="w-full bg-white flex justify-center align-middle py-[5em] my-[5em] border-y-2 border-y-blue-gray-700">
+      <img src={bannerImg} className="w-160 h-80" alt="banner"></img>
     </div>
   );
 };

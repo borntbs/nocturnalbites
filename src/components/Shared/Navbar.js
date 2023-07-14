@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import noctLogo from "../../assets/nocturnalLogo.png";
+import noctLogo from "../../assets/Misc/nocturnalLogo.png";
 import { NavLink, useLocation } from "react-router-dom";
 
 const NavBar = () => {
@@ -10,7 +10,7 @@ const NavBar = () => {
 
   const CSS = {
     logo: "ml-3 w-20 h-20",
-    NavBar: "w-full flex flex-row gap-2 pl-1 mt-2 justify-between",
+    NavBar: "w-full flex flex-row gap-2 pl-1 mt-0 justify-between bg-white",
     li: "group flex navItem transition-all flex-col justify-center items-center hover:shadow-lg hover:cursor-pointer",
     NavLink: "flex items-center h-full px-3 align-middle",
     linkFooter: "navFooter min-w-full h-[.3em] group-hover:bg-[#27285C]",

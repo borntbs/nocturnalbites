@@ -218,15 +218,22 @@ const Menu = (props) => {
               break;
           }
           itemArr.push(
-            <div className="flex flex-col">
-              <ItemCard props={props} key={crypto.randomUUID()} />
+            <div className="flex flex-col" key={crypto.randomUUID()}>
+              <ItemCard props={props} />
             </div>
           );
+        }
+        var className =
+          "text-center font-bold text-2xl flex flex-row justify-center";
+        if (index === 0) {
+          className += " firstItem sm:py-[3em]";
+        } else {
+          className += " py-[3em]";
         }
         menu.push(
           <div className="" key={crypto.randomUUID()}>
             <div
-              className="py-[3em] text-center font-bold text-2xl flex flex-row justify-center"
+              className={className}
               ref={(ref) => {
                 menuRefs.current[index] = ref;
               }}
@@ -247,14 +254,19 @@ const Menu = (props) => {
   };
 
   const scrollTo = (e) => {
-    const scrollToCat = e.currentTarget.innerHTML;
+    const scrollToCat = e.currentTarget.firstChild.innerHTML;
     const refIndex = Categories.indexOf(scrollToCat);
     menuRefs.current[refIndex].scrollIntoView();
   };
 
+  const menuNavProps = {
+    scrollTo: scrollTo,
+    Categories: Categories,
+  };
+
   return (
     <div className="">
-      <MenuNav scrollTo={scrollTo} />
+      <MenuNav props={menuNavProps} />
       <div>
         {/* className="grid grid-cols-1 justify-items-center sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4" */}
         {genMenu()}

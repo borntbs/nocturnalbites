@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  .firstItem {
+    @apply pt-[1em] pb-[3em];
+  }
   .toprow {
     @apply border-y-2;
   }
