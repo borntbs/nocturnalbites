@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Dev from "./pages/Dev";
 import NavBar from "./components/Shared/Navbar";
+import Reservation from "./pages/Reservation";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Navigate to="/home" replace={true} />} />
         <Route path="/home" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/reservations" element={<Reservation/>}/>
         <Route path="/dev" element={<Dev />} />
       </Routes>
     </Router>
