@@ -35,7 +35,6 @@ const MenuNav = ({ props }) => {
           );
           break;
         case Categories.length - 1:
-          console.log("CASE", 0);
           nav.push(
             <div className="group text-center" key={crypto.randomUUID()}>
               <div

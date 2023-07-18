@@ -26,9 +26,7 @@ const AllImageDesc = {
 };
 
 ImgArr.map((img, index) => {
-  console.log("Before", img);
   AllImageDesc[getItemNameFromImage(img)]["img"] = img;
-  console.log("After");
 });
 
 const Home = (props) => {
@@ -101,19 +99,3 @@ const Home = (props) => {
 };
 
 export default Home;
-
-// <div className="pb-[2em] h-full w-full flex flex-row-reverse justify-around mt-[2em] p-3 items-center">
-//   <img src={AboutImg} className="rounded-md h-[40em]"></img>
-//   <div className="bg-black w-[50vh] h-fit flex flex-col py-[1em] px-[2em] rounded-md bg-opacity-60">
-//     <div className="text-white text-3xl">About</div>
-//     <span className="h-[2px] bg-black w-[30%] my-[1em]"></span>
-
-//     <NavLink
-//       to="/menu"
-//       className="border-2 border-white w-[40%] text-white text-center mt-5 mb-3 hover:border-[2px] hover:border-opacity-60 hover:text-black hover:bg-white hover:border-black"
-//       onClick={goToMenu}
-//     >
-//       Menu
-//     </NavLink>
-//   </div>
-// </div>;
